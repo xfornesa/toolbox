@@ -1,0 +1,22 @@
+{
+  "app": {
+    "root": "app/"
+  },
+  
+  "assets" : {
+    "devel": {
+      "templates": "app/assets/dev/templates/",
+      "scss": "app/assets/dev/scss/",
+      "js": "app/assets/dev/js/",
+      "img": "app/assets/dev/img/",
+      "icons": "app/assets/dev/img/icons/"
+    },
+
+    "build": {
+      "css": "app/assets/build/css/",
+      "js": "app/assets/build/js/",
+      "img": "app/assets/build/img/",
+      "pages": "app/"
+    } 
+  }
+}

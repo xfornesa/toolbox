@@ -1,41 +1,22 @@
-var assets = {
-		'dev': 'app/assets/dev/',
-		'build': 'app/assets/build/',
-	},
-
-	development = {
-		'scss': assets.dev + 'scss/',
-		'img': assets.dev + 'img/',
-		'icons': assets.dev + 'img/icons/',
-		'templates': assets.dev + 'templates/',
-	},
-
-	build = {
-		'pages': 'app/',
-		'css': assets.build + 'css/',
-		'js':  assets.build + 'js/',
-		'img': assets.build + 'img/',
-	};
-
-
-var gulp = require('gulp'),
-	jade = require('gulp-jade'),
-	compass = require('gulp-compass');
+var config = require('./app.json'),
+		gulp = require('gulp'),
+		jade = require('gulp-jade'),
+		compass = require('gulp-compass');
 
 
 gulp.task('jade',function(){
-	gulp.src(development.templates + '/**/*.jade')
+	gulp.src(config.assets.devel.templates + '/**/*.jade')
 	.pipe(jade())
-	.pipe(gulp.dest(build.pages));
+	.pipe(gulp.dest(config.assets.build.pages));
 });
 
 
 gulp.task('compass', function() {
-	gulp.src(development.scss + '*.scss')
+	gulp.src(config.assets.devel.scss + '*.scss')
 	.pipe(compass({
 		config_file: 'config.rb',
-		css:  build.css,
-		sass: development.scss
+		css:  config.assets.build.css,
+		sass: config.assets.devel.scss
 	}))
-	.pipe(gulp.dest(build.css))
+	.pipe(gulp.dest(config.assets.build.css))
 });
