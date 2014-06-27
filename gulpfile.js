@@ -6,7 +6,7 @@ var appConfig = require('./appConfig.json'),
 
 var jadeFiles = appConfig.assets.devel.templates + '**/*.jade',
 		sassFiles = appConfig.assets.devel.scss + '**/*.scss',
-		jsFiles = appConfig.assets.devel.js + '**/*/js';
+		jsFiles = appConfig.assets.devel.js + '**/*.js';
 
 
 gulp.task('jade',function(){
@@ -37,7 +37,6 @@ gulp.task('karma', function () {
 gulp.task('watch', function () {
 	gulp.watch(jadeFiles,['jade']);
 	gulp.watch(sassFiles,['compass']);
-	gulp.watch(jsFiles,['karma']);
 });
 
-gulp.task('default', ['jade','compass','karma', 'watch']);
+gulp.task('default', ['jade','compass', 'watch']);

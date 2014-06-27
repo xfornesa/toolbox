@@ -1,3 +1,1 @@
-var JS = JS || {
-  config : {}
-};
+var JS = JS || {};
