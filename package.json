@@ -9,7 +9,11 @@
     "gulp-compass": "~1.1.9",
     "gulp-jade": "~0.6.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "karma": "^0.12.16",
+    "karma-jasmine": "^0.2.2",
+    "karma-phantomjs-launcher": "^0.1.4"
+  },
   "author": "Harold Dennison",
   "license": "MIT",
   "repository": {
