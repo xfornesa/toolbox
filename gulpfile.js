@@ -1,11 +1,6 @@
-var environments = {
-		'dev': 'app/dev/',
-		'prod': 'app/prod/',
-	},
-
-	assets = {
-		'dev': environments.dev + 'assets/',
-		'prod': environments.prod + 'assets/',
+var assets = {
+		'dev': 'app/assets/dev/',
+		'build': 'app/assets/build/',
 	},
 
 	development = {
@@ -15,11 +10,11 @@ var environments = {
 		'templates': assets.dev + 'templates/',
 	},
 
-	production = {
-		'pages': environments.prod + 'pages/',
-		'css': assets.prod + 'css/',
-		'js':  assets.prod + 'js/',
-		'img': assets.prod + 'img/',
+	build = {
+		'pages': 'app/',
+		'css': assets.build + 'css/',
+		'js':  assets.build + 'js/',
+		'img': assets.build + 'img/',
 	};
 
 
@@ -31,7 +26,7 @@ var gulp = require('gulp'),
 gulp.task('jade',function(){
 	gulp.src(development.templates + '/**/*.jade')
 	.pipe(jade())
-	.pipe(gulp.dest(production.pages));
+	.pipe(gulp.dest(build.pages));
 });
 
 
@@ -39,9 +34,8 @@ gulp.task('compass', function() {
 	gulp.src(development.scss + '*.scss')
 	.pipe(compass({
 		config_file: 'config.rb',
-		css:  production.css,
+		css:  build.css,
 		sass: development.scss
 	}))
-	.pipe(gulp.dest(production.css))
+	.pipe(gulp.dest(build.css))
 });
-
