@@ -25,8 +25,7 @@ var environments = {
 
 var gulp = require('gulp'),
 	jade = require('gulp-jade'),
-	compass = require('gulp-compass'),
-	svgSprites = require('gulp-svg-sprites');
+	compass = require('gulp-compass');
 
 
 gulp.task('jade',function(){
@@ -45,3 +44,4 @@ gulp.task('compass', function() {
 	}))
 	.pipe(gulp.dest(production.css))
 });
+
