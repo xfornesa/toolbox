@@ -1,22 +1,43 @@
-var config = require('./app.json'),
+var appConfig = require('./appConfig.json'),
 		gulp = require('gulp'),
 		jade = require('gulp-jade'),
-		compass = require('gulp-compass');
+		compass = require('gulp-compass'),
+		karma = require('gulp-karma');
+
+var jadeFiles = appConfig.assets.devel.templates + '**/*.jade',
+		sassFiles = appConfig.assets.devel.scss + '**/*.scss',
+		jsFiles = appConfig.assets.devel.js + '**/*/js';
 
 
 gulp.task('jade',function(){
-	gulp.src(config.assets.devel.templates + '/**/*.jade')
+	gulp.src(jadeFiles)
 	.pipe(jade())
-	.pipe(gulp.dest(config.assets.build.pages));
+	.pipe(gulp.dest(appConfig.assets.build.pages));
 });
 
 
 gulp.task('compass', function() {
-	gulp.src(config.assets.devel.scss + '*.scss')
+	gulp.src(sassFiles)
 	.pipe(compass({
-		config_file: 'config.rb',
-		css:  config.assets.build.css,
-		sass: config.assets.devel.scss
+		appConfig_file: 'config.rb',
+		sass: appConfig.assets.devel.scss,
+		css:  appConfig.assets.build.css
 	}))
-	.pipe(gulp.dest(config.assets.build.css))
+	.pipe(gulp.dest(appConfig.assets.build.css))
 });
+
+
+gulp.task('karma', function () {
+    gulp.src(jsFiles)
+    .pipe(karma({
+    	configFile: 'tests/karma/karma.conf.js'
+    }));
+});
+
+gulp.task('watch', function () {
+	gulp.watch(jadeFiles,['jade']);
+	gulp.watch(sassFiles,['compass']);
+	gulp.watch(jsFiles,['karma']);
+});
+
+gulp.task('default', ['jade','compass','karma', 'watch']);

@@ -18,5 +18,12 @@
       "img": "app/assets/build/img/",
       "pages": "app/"
     } 
+  },
+
+  "karma" : {
+    "files": {
+      "source": "app/assets/dev/js/",
+      "tests": "tests/karma/specs/"
+    }
   }
 }

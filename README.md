@@ -14,5 +14,8 @@ Just playing a bit with gulp and similar tools in order to start a project.
 ## Installation
 `npm install`
 
+## Configuration
+Toolbox project should run 'as is', but app scaffolding can be configured in `app.json`
+
 ## Run
 `gulp`
