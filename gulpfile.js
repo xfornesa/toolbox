@@ -38,7 +38,7 @@ gulp.task('karma', function () {
 
 gulp.task('jshint', function() {
   return gulp.src(jsFiles)
-    .pipe(jshint())
+    .pipe(jshint('.jshintrc'))
     .pipe(jshint.reporter('default'));
 });
 

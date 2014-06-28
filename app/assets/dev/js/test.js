@@ -1,1 +1,5 @@
-var JS = JS || {};
+(function(){
+  "use strict";
+
+  console.log('Hi!');
+}());
