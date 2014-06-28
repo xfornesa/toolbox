@@ -2,7 +2,8 @@ var appConfig = require('./appConfig.json'),
 		gulp = require('gulp'),
 		jade = require('gulp-jade'),
 		compass = require('gulp-compass'),
-		karma = require('gulp-karma');
+		karma = require('gulp-karma'),
+    jshint = require('gulp-jshint');
 
 var jadeFiles = appConfig.assets.devel.templates + '**/*.jade',
 		sassFiles = appConfig.assets.devel.scss + '**/*.scss',
@@ -34,9 +35,18 @@ gulp.task('karma', function () {
     }));
 });
 
+
+gulp.task('jshint', function() {
+  return gulp.src(jsFiles)
+    .pipe(jshint())
+    .pipe(jshint.reporter('default'));
+});
+
+
 gulp.task('watch', function () {
 	gulp.watch(jadeFiles,['jade']);
-	gulp.watch(sassFiles,['compass']);
+  gulp.watch(sassFiles,['compass']);
+	gulp.watch(jsFiles,['jshint']);
 });
 
 gulp.task('default', ['jade','compass', 'watch']);
