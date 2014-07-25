@@ -11,5 +11,12 @@ Just playing a bit with gulp and similar tools in order to start a project.
 ## Installation
 `bash install.sh`
 
+This would try to:
+- Update RubyGems (requires sudo password)
+- Install required gems (specified at Gemfile)
+- Install node modules (specified at package.json)
+- Install gulp plugins (specified at appConfig.json)
+- Install bower packages (specified at bower.json)
+
 ## Configuration
 Toolbox project should run 'as is', but app scaffolding can be configured in `appConfig.json`
