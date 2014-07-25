@@ -1,0 +1,1 @@
+sudo gem update --system && bundler install && npm install && gulp install && bower install

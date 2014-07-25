@@ -3,7 +3,8 @@ var appConfig = require('./appConfig.json'),
 		jade = require('gulp-jade'),
 		compass = require('gulp-compass'),
 		karma = require('gulp-karma'),
-    jshint = require('gulp-jshint');
+    jshint = require('gulp-jshint'),
+    shell = require('gulp-shell');
 
 var jadeFiles = appConfig.assets.devel.templates + '**/*.jade',
 		sassFiles = appConfig.assets.devel.scss + '**/*.scss',
@@ -41,6 +42,13 @@ gulp.task('jshint', function() {
     .pipe(jshint('.jshintrc'))
     .pipe(jshint.reporter('default'));
 });
+
+
+gulp.task('install', shell.task([
+  'sudo gem update --system',
+  'bundler install',
+  'bower install'
+]))
 
 
 gulp.task('watch', function () {

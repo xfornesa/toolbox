@@ -8,19 +8,8 @@ Just playing a bit with gulp and similar tools in order to start a project.
   to avoid [Bus error: 10](https://github.com/gruntjs/grunt-contrib-watch/issues/204) 
   bug when watching files.
 
-[Gulp](http://gulpjs.com/)  
-	`npm install gulp -g`
-
-[Compass](http://compass-style.org/)  
-	`gem update --system`  
-	`gem install compass`
-
-
 ## Installation
-`npm install`
+`bash install.sh`
 
 ## Configuration
 Toolbox project should run 'as is', but app scaffolding can be configured in `appConfig.json`
-
-## Run
-`gulp`
